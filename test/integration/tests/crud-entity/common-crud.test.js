@@ -5,7 +5,7 @@ function testFunc() {
   const { collectionName } = externalConfig;
 
   dataStoreTypes.forEach((currentDataStoreType) => {
-    describe(`CRUD Entity - ${currentDataStoreType}`, () => {
+    describe.only(`CRUD Entity - ${currentDataStoreType}`, () => {
       const textFieldName = Constants.TextFieldName;
       const numberFieldName = Constants.NumberFieldName;
       const arrayFieldName = Constants.ArrayFieldName;
@@ -71,7 +71,7 @@ function testFunc() {
             storeToTest.count()
               .subscribe(onNextSpy, done, () => {
                 try {
-                  utilities.validateReadResult(dataStoreType, onNextSpy, 2, 3);
+                  utilities.validateReadResult(dataStoreType, onNextSpy, 3, 4);
                   done();
                 } catch (error) {
                   done(error);
