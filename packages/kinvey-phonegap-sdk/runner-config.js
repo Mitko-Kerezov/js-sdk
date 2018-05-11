@@ -96,7 +96,7 @@ function runPipeline(osName) {
       }),
       runCommand({
         command: 'cordova',
-        args: ['run', osName, '--target', 'iPhone7-11.2'],
+        args: ['run', osName, '--target', 'com.apple.CoreSimulator.SimDeviceType.iPhone-7-Plus'],
         cwd: appRootPath
       })
     ]
