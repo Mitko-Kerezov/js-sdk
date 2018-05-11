@@ -6,6 +6,7 @@ const cleanUpUserCollection = require('./clean-up-user-collection.js');
 program
   .option('--platform [type]', 'Add Platform [html5/phonegap/nativescript]')
   .option('--os [type]', 'Add OS [android/ios]')
+  .option('--device [type]', 'Specify DeviceId')
   .parse(process.argv);
 
 const runnerConfigFilePath = path.join(__dirname, '../../', 'packages', `kinvey-${program.platform}-sdk`, 'runner-config');
@@ -15,7 +16,7 @@ const config = createPlatformSpecificConfig(program.platform, program.os);
 cleanUpUserCollection(config)
   .then(() => {
     const runPipeline = require(runnerConfigFilePath);
-    return runPipeline(program.os)
+    return runPipeline(program.os, program.device)
   })
   .then(() => {
     console.log('The tests passed successfully!');

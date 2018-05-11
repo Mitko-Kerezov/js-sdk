@@ -29,7 +29,7 @@ const configFileName = 'config.js';
 let logServerPort;
 
 
-function runPipeline(osName) {
+function runPipeline(osName, device) {
   const runner = new Runner({
     pipeline: [
       logServer(),
@@ -96,7 +96,7 @@ function runPipeline(osName) {
       }),
       runCommand({
         command: 'cordova',
-        args: ['run', osName, '--target', 'com.apple.CoreSimulator.SimDeviceType.iPhone-7-Plus'],
+        args: ['run', osName, '--device', device],
         cwd: appRootPath
       })
     ]
