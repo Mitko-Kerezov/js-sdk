@@ -96,7 +96,7 @@ function runPipeline(osName) {
       }),
       runCommand({
         command: 'cordova',
-        args: ['run', osName],
+        args: ['run', osName, '--target', 'iPhone7-11.2'],
         cwd: appRootPath
       })
     ]
