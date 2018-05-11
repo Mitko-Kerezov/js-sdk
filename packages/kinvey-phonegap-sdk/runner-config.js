@@ -96,6 +96,11 @@ function runPipeline(osName, device) {
       }),
       runCommand({
         command: 'cordova',
+        args: ['emulate', osName, '--list'],
+        cwd: appRootPath
+      }),
+      runCommand({
+        command: 'cordova',
         args: ['run', osName, '--device', device],
         cwd: appRootPath
       })
