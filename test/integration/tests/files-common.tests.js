@@ -12,7 +12,7 @@ function testFunc() {
     }));
   }
 
-  describe.only('Files', () => {
+  describe('Files Common Tests', () => {
     let fileToUpload1;
     let fileToUpload2;
     // The string content should match the content of the used sample files test1.txt and test2.txt in test/integration/sample-test-files
